@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getDataProvinsi } from './redux/actions/provinsi.actions';
+import Menubar from "./components/Menubar";
+import ProvinsiCard from "./components/ProvinsiCard";
 
 function App() {
+  const dispatch = useDispatch()
+  const dataProvinsi = useSelector((state) => state.provinsiReducers.provinsi)
+  
+  useEffect(() => {
+    dispatch(getDataProvinsi())
+  }, [dispatch])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Menubar />
+      <main>
+        {dataProvinsi.map((provinsi) => (
+          <ProvinsiCard 
+            provinsi = {provinsi}
+            key = {provinsi.id}
+          />
+        ))}
+      </main>
     </div>
   );
 }
