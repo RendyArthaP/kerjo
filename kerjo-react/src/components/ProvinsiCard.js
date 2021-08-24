@@ -14,10 +14,14 @@ const ProvinsiCard = ({ provinsi }) => {
   
   return (
     <Dropdown className="m-2">
-      <Dropdown.Toggle variant="success" id="dropdown-basic" className="w-lg-50">
+      <Dropdown.Toggle 
+        variant="success" 
+        id="dropdown-basic" 
+        className="w-lg-50"
+      >
         {provinsi.name}
       </Dropdown.Toggle>
-      <Dropdown.Menu>
+      <Dropdown.Menu >
         {dataKabupaten.map((kabupaten) => (
           <Dropdown.Item>
             {kabupaten.name}
