@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { getDataProvinsi } from './redux/actions/provinsi.actions';
 import Menubar from "./components/Menubar";
 import ProvinsiCard from "./components/ProvinsiCard";
+import { Container } from "react-bootstrap";
 
 function App() {
   const dispatch = useDispatch()
@@ -15,14 +16,11 @@ function App() {
   return (
     <div className="App">
       <Menubar />
-      <main>
-        {dataProvinsi.map((provinsi) => (
-          <ProvinsiCard 
-            provinsi = {provinsi}
-            key = {provinsi.id}
-          />
-        ))}
-      </main>
+      <Container>
+        <ProvinsiCard 
+          provinsi = {dataProvinsi} 
+        />
+      </Container>
     </div>
   );
 }

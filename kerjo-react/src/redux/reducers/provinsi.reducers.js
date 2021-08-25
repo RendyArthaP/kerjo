@@ -2,15 +2,11 @@ import {
   GET_PROVINSI_LOADING,
   GET_PROVINSI_SUCCESS,
   GET_PROVINSI_ERROR,
-  GET_KABUPATEN_LOADING,
-  GET_KABUPATEN_SUCCESS,
-  GET_KABUPATEN_ERROR
 } from "../actions/provinsi.actions.js";
 
 const initialState = {
   loading: false,
-  provinsi: [],
-  kabupaten: []
+  provinsi: []
 }
 
 const provinsiReducers = (state = initialState, action) => {
@@ -27,22 +23,6 @@ const provinsiReducers = (state = initialState, action) => {
         provinsi: action.result
       }
     case GET_PROVINSI_ERROR:
-      return {
-        ...state,
-        loading: true
-      }
-    case GET_KABUPATEN_LOADING:
-      return {
-        ...state,
-        loading: true
-      }
-    case GET_KABUPATEN_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        kabupaten: action.result
-      }
-    case GET_KABUPATEN_ERROR:
       return {
         ...state,
         loading: true
